@@ -1,0 +1,33 @@
+appId: id.utomo.utostory
+productName: UtoStory Studio
+directories:
+  buildResources: build
+  output: dist
+files:
+  - out/**
+  - package.json
+  - '!**/*.map'
+  - '!node_modules/ffmpeg-static/{README.md,example.js,install.js,ffmpeg.exe.README}'
+extraResources:
+  - from: resources/fonts
+    to: fonts
+  - from: node_modules/ffmpeg-static/ffmpeg.exe.LICENSE
+    to: licenses/FFmpeg-LICENSE.txt
+  - from: resources/licenses
+    to: licenses
+  - from: resources/whisper
+    to: whisper
+asarUnpack:
+  - node_modules/ffmpeg-static/**
+  - '**/*.node'
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+  artifactName: UtoStory-Setup-${version}.${ext}
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  shortcutName: UtoStory Studio
+npmRebuild: true

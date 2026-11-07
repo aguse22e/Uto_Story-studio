@@ -1,0 +1,4 @@
+# LF in the repo; each start script keeps the line endings its OS expects, also in GitHub's ZIP download
+* text=auto
+*.bat text eol=crlf
+*.command text eol=lf
